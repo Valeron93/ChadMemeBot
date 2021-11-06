@@ -6,14 +6,16 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.storage import FSMContext
 from aiogram.types import message, InputFile
 
-import token
+import settings
+import mv
+import os
 
 
 storage = MemoryStorage()
 
 logging.basicConfig(level=logging.INFO)
 
-bot = Bot(token = token.TOKEN)
+bot = Bot(token = settings.TOKEN)
 dp = Dispatcher(bot, storage=storage)
 
 class VideoForm(StatesGroup):
@@ -61,7 +63,10 @@ async def str2(msg: types.Message, state: FSMContext):
     await msg.answer('Please wait')
 
     if typ == 'video':
-        pass
+        path = mv.a(string1, string2)
+        file = InputFile(path)
+        await msg.answer_video(file)
+        os.remove(path)
     elif typ == 'image':
         pass
 
