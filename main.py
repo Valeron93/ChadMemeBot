@@ -63,7 +63,7 @@ async def str2(msg: types.Message, state: FSMContext):
     await msg.answer('Please wait')
 
     if typ == 'video':
-        path = mv.a(string1, string2)
+        path = mv.movie(string1, string2)
         file = InputFile(path)
         await msg.answer_video(file)
         os.remove(path)
