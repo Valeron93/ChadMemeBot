@@ -5,7 +5,7 @@ import time
 def maker(average_fan_txt, average_enj_txt):
 
     font = ImageFont.truetype("arial.ttf", 20)
-    
+
     img = Image.open('meme.jpg', mode = 'r') 
 
     draw = ImageDraw.Draw(im = img)
@@ -19,5 +19,7 @@ def maker(average_fan_txt, average_enj_txt):
     #img.show()
 
     img_name = f'{time.time()}.jpg'
+    img.save(img_name)
+    
     return img_name
 
