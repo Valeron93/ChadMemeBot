@@ -7,7 +7,7 @@ from aiogram.dispatcher.storage import FSMContext
 from aiogram.types import message, InputFile
 
 import settings
-import mv
+import mv,img
 import os
 
 
@@ -62,13 +62,15 @@ async def str2(msg: types.Message, state: FSMContext):
         typ = data['typ']
     await msg.answer('Please wait')
 
+
     if typ == 'video':
         path = mv.movie(string1, string2)
-        file = InputFile(path)
-        await msg.answer_video(file)
+        await msg.answer_video(InputFile(path))
         os.remove(path)
     elif typ == 'image':
-        pass
+        path = img.maker(string1, string2)
+        await msg.answer_photo(InputFile(path))
+        os.remove(path)
 
     
 if __name__ == '__main__':
