@@ -2,7 +2,7 @@ import moviepy.editor as mp
 import time
 
 def movie(text1: str, text2: str) -> str:
-    video = mp.VideoFileClip('meme.mp4', audio=True)
+    video = mp.VideoFileClip('data/meme.mp4', audio=True)
 
     w,h = moviesize = video.size
     name = f'{time.time()}.mp4'

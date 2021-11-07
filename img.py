@@ -4,9 +4,9 @@ import time
 
 def maker(average_fan_txt, average_enj_txt):
 
-    font = ImageFont.truetype("arial.ttf", 20)
+    font = ImageFont.truetype("data/arial.ttf", 20)
 
-    img = Image.open('meme.jpg', mode = 'r') 
+    img = Image.open('data/meme.jpg', mode = 'r') 
 
     draw = ImageDraw.Draw(im = img)
 
